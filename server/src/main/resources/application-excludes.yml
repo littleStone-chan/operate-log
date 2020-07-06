@@ -1,0 +1,5 @@
+#拦截排除配置
+
+o2osys:
+  interceptor:
+    excludes:

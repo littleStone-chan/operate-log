@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: operate-log
+  profiles:
+    active: test
+    include: excludes
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+server:
+  port: 12300
+
+  #pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  #分页合理化参数，默认值为false。当该参数设置为 true 时，pageNum<=0 时会查询第一页，pageNum>pages（超过总数时），会查询最后一页。默认false 时，直接根据参数进行查询。
+  reasonable: true
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+com:
+  o2osys:
+    operate-log:
+      server-address: http://127.0.0.1:12301
+      business-app-name: ObjectLoggerDemo
+      auto-log-attributes: true
+
+swagger:
+  openGroupName: 操作日志-服务-公开
+  authGroupName: 操作日志-服务-鉴权
+  controllerPath: com.o2osys.log.server.controller
+  title: 操作日志API文档
+  openDescription: 项目-服务API文档-公开
+  authDescription: 项目-服务API文档-鉴权
+  version: 1.0

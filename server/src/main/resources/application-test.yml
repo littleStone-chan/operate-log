@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    name: lianlianche_operate-log
+    url: jdbc:mysql://192.168.0.127:3306/operate_log?characterEncoding=utf8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: VC20141113@189.cn
+    driver-class-name: com.mysql.jdbc.Driver
+  #redis配置
+  redis:
+    database: 0
+    host: 192.168.0.127
+    port: 6379
+    password: password
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 8
+        #连接池最大等待时间  负数代表没有限制
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+  rabbitmq:
+    host: 192.168.0.158
+    port: 5672
+    username: o2osys
+    password: 123456
+    publisher-returns: true
+    publisher-confirms: true
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#指定eureka服务器
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.0.158
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.0.158:8000/eureka/
+
+swagger:
+  openGroupName: 操作日志-服务-公开
+  authGroupName: 操作日志-服务-鉴权
+  controllerPath: com.o2osys.log.server.controller
+  title: 操作日志API文档
+  openDescription: 项目-服务API文档-公开
+  authDescription: 项目-服务API文档-鉴权
+  version: 1.0

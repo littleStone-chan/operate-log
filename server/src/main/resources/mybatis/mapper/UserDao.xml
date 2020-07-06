@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.o2osys.log.server.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.o2osys.log.server.po.User">
+        <id column="id" jdbcType="CHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+    </resultMap>
+
+    <update id="update" parameterType="com.o2osys.log.server.po.User">
+        UPDATE `operate_log`.`user` SET  `name`= #{user.name} WHERE (`id`= #{user.id});
+    </update>
+
+    <update id="update2" parameterType="java.lang.String">
+        UPDATE `operate_log`.`user` SET  `name`= #{name} WHERE (`id`= #{id});
+    </update>
+
+</mapper>
