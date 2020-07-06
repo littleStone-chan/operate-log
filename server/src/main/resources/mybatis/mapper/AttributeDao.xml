@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.o2osys.log.server.dao.AttributeDao">
+<mapper namespace="com.chen.log.server.dao.AttributeDao">
 
-    <resultMap id="BaseResultMap" type="com.o2osys.log.server.po.Attribute">
+    <resultMap id="BaseResultMap" type="com.chen.log.server.po.Attribute">
         <id column="id" jdbcType="CHAR" property="id" />
         <result column="operation_id" jdbcType="CHAR" property="operationId" />
         <result column="attribute_type" jdbcType="VARCHAR" property="attributeType" />
@@ -33,7 +33,7 @@
         order by create_time
     </select>
 
-    <select id="queryByFilter" parameterType="com.o2osys.log.server.po.Attribute" resultType="com.o2osys.log.server.po.Attribute">
+    <select id="queryByFilter" parameterType="com.chen.log.server.po.Attribute" resultType="com.chen.log.server.po.Attribute">
         SELECT * FROM attribute_${appName}
         <where>
             <if test="id != null">
